@@ -62,3 +62,20 @@ print(f"size: {len(output)}\noutput: {output}")
 
 # size: 19
 # output: [1, 4, 7, 10, 13, 16, 19, 2, 6, 11, 15, 3, 9, 17, 5, 14, 8, 12, 18]
+
+
+# enumerate alternatives 
+def remove_every_other(lst):    # use enum
+    result = []
+    for i, val in enumerate(lst):
+        if i % 2 == 0:
+            result.append(val)
+    return result 
+
+def remove_every_other_listcomp(lst):
+    return [ i for i in lst if i % 2 != 0]
+
+
+# much simpler form 
+lst = list(range(10))
+new_lst = lst[::2]    
