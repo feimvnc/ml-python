@@ -9,11 +9,11 @@ Uses cases
 # uncomment below to create data.csv file 
 # reading larges files , to avoid MemoryError
 # create a sample csv file 
-# import csv
-# with open("data.csv", "w") as f:
-#     writer = csv.writer(f)
-#     for row in range(1000):
-#         writer.writerow([row, row+1, row+2, row+3])
+import csv
+with open("data.csv", "w") as f:
+    writer = csv.writer(f)
+    for row in range(1000):
+        writer.writerow([row, row+1, row+2, row+3])
 
 
 # generator expression , read file and print last line 
@@ -120,5 +120,21 @@ print(f"Total : {total_amount}")
 
 # Total : 100300
 
+## normal map function 
+def map(func, iterable):
+    results = []
+    for item in iterable:
+        results.append(func(item))
+    return results 
 
+## generator map example 
+def gmap(func, iterable):
+    for item in iterable:
+        yield func(item)
+def map(func, iterable):
+    return list(gmap(func, iterable))   
+
+gm = list(gmap(lambda x: x**2, list(range(10))))
+print(f"gmap generator {gm}")
+# gmap generator [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
