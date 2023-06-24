@@ -1,0 +1,91 @@
+(venv) (base) user-2:chat-prompt user$ python -V
+Python 3.9.7
+
+venv) (base) user-2:chat-prompt user$ ls -ltr
+total 192
+-rw-r--r--  1 user  staff     68 24 Jun 20:33 constants.py
+drwxr-xr-x  3 user  staff     96 24 Jun 20:33 __pycache__
+-rw-r--r--  1 user  staff  89291 24 Jun 20:47 fastapi.txt
+-rw-r--r--  1 user  staff    316 24 Jun 21:02 app.py
+drwxr-xr-x  7 user  staff    224 24 Jun 21:05 venv
+
+(venv) (base) user-2:chat-prompt user$ python app.py 
+hello
+
+
+(venv) (base) user-2:chat-prompt user$ python app.py "what is fastapi"
+hello
+ FastAPI is a modern Python web framework, very efficient in building APIs. It is based on Python’s type hints feature that has been added since Python 3.6 onwards. It is one of the fastest web frameworks of Python.
+
+
+(venv) (base) user-2:chat-prompt user$ python app.py "how to start fastapi"
+hello
+ To start FastAPI, you need to install FastAPI and Uvicorn using pip, then declare the application object.
+
+
+(venv) (base) user-2:chat-prompt user$ python app.py "how to start fastapi using commands"
+hello
+ To start FastAPI, use the uvicorn server command and mention the file in which the FastAPI application object is instantiated. For example, if the application object is instantiated in the main.py file, use the command: uvicorn main:app --reload.
+
+
+(venv) (base) user-2:chat-prompt user$ python app.py "give a jinja template code"
+hello
+ {% %} - Statements, {{ }} - Expressions to print to the template output, {# #} - Comments which are not included in the template output, # # # - Line statements
+
+
+(venv) (base) user-2:chat-prompt user$ python app.py "give a jinja template code"
+hello
+ {% %} - Statements, {{ }} - Expressions to print to the template output, {# #} - Comments which are not included in the template output, # # # - Line statements
+
+
+(venv) (base) user-2:chat-prompt user$ python app.py "give two piece of jinja template code"
+hello
+ {% %} and {{ }}
+
+
+(venv) (base) user-2:chat-prompt user$ python app.py "give two piece of jinja template code"
+hello
+ {% %} and {{ }}
+
+
+(venv) (base) user-2:chat-prompt user$ python app.py "give two piece of jinja template code of 'hello world'"
+hello
+ {% %} - Statements and {{ }} - Expressions to print to the template output
+
+
+(venv) (base) user-2:chat-prompt user$ python app.py "give two piece of jinja template code of 'hello world'"
+hello
+ {% %} - Statements and {{ }} - Expressions to print to the template output
+
+(venv) (base) user-2:chat-prompt user$ python app.py "what is golang"
+hello
+ I don't know.
+
+
+ # after include "llm=ChatOpenAI()", it added both customized dataset and open pipeline 
+ # print(index.query(query, llm=ChatOpenAI()))
+(venv) (base) user-2:chat-prompt user$ python app.py "what is golang"
+hello
+Retrying langchain.chat_models.openai.ChatOpenAI.completion_with_retry.<locals>._completion_with_retry in 1.0 seconds as it raised RateLimitError: You exceeded your current quota, please check your plan and billing details..
+Golang, also known as Go, is a programming language developed by Google in 2007. It is an open-source language that is designed to be efficient, fast, and easy to use. Golang is statically typed, compiled, and has garbage collection. It is often used for building scalable servers, network services, and other software applications. Golang has become more and more popular in recent years, especially in the field of web development and cloud computing.
+
+
+# use this line to test below program - loader = TextLoader('data.txt')
+(venv) (base) user-2:chat-prompt user$ python app.py "show the context and add 5 more numbers"
+hello
+Number of requested results 4 is greater than number of elements in index 1, updating n_results = 1
+Context: These are the first five odd numbers starting from 1. 
+
+Next five odd numbers:
+11
+13
+15
+17
+19
+
+
+# summarize ttext 
+(venv) (base) user-2:chat-prompt user$ python app.py "summarize the context"
+hello
+The context includes information about REST architecture, its recommended constraints, and advantages. It also introduces FastAPI, a Python web framework that uses REST architecture. The context also explains about Object-Relational Mapping (ORM) and SQLAlchemy library, which is used to communicate with various types of DBAPI implementations and databases. Finally, there is a disclaimer about the accuracy and completeness of the contents provided in the tutorial.
+
