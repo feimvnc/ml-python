@@ -176,4 +176,19 @@ The next five numbers in the sequence are 12, 14, 16, 18 and 20.
 
 >
 
+## compile and run a web api server 
+cd llama.cpp
+make server
+./server -m models/ggml-vic13b-q4_0.bin -c 2048
+...
+{"timestamp":1687817876,"level":"INFO","function":"main","line":968,"message":"HTTP server listening","hostname":"127.0.0.1","port":8080}
 
+
+# open another terminal, test local curl request 
+
+curl --request POST \
+>     --url http://localhost:8080/completion \
+>     --data '{"prompt": "Building a website can be done in 10 simple steps:","n_predict": 128}'
+
+# response 
+{"content":"\n\nStep 1: Define the purpose of your website. What is its main goal? Who is your target audience? These questions will help guide the rest of the design and development process.\n\nStep 2: Choose a domain name for your website. This should be something easy to remember and relevant to your website's purpose.\n\nStep 3: Decide on a web hosting service. There are many options available, so do some research to find one that fits your needs and budget.\n\nStep 4: Choose a content management system (CMS) or website builder platform. This will make","generation_settings":{"frequency_penalty":0.0,"ignore_eos":false,"logit_bias":[],"mirostat":0,"mirostat_eta":0.10000000149011612,"mirostat_tau":5.0,"n_keep":0,"n_predict":128,"penalize_nl":true,"presence_penalty":0.0,"repeat_last_n":64,"repeat_penalty":1.100000023841858,"seed":-1,"stop":[],"stream":false,"temp":0.800000011920929,"tfs_z":1.0,"top_k":40,"top_p":0.949999988079071,"typical_p":1.0},"model":"models/ggml-vic13b-q4_0.bin","prompt":" Building a website can be done in 10 simple steps:","stop":true,"stopped_eos":false,"stopped_limit":true,"stopped_word":false,"stopping_word":"","tokens_predicted":128,"truncated":false}
